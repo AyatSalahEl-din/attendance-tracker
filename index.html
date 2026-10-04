@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attendance Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Attendance</h1>
+    <div class="nav">
+      <button id="prev" aria-label="Previous period">‹</button>
+      <span id="period"></span>
+      <button id="next" aria-label="Next period">›</button>
+    </div>
+  </header>
+
+  <section class="dash" id="dash"></section>
+  <p id="todayStatus" class="status"></p>
+
+  <section class="card">
+    <h2 id="formTitle">Add day</h2>
+    <div class="row">
+      <label>Date<input type="date" id="date"></label>
+      <label>Entry<input type="time" id="entry"></label>
+      <label>Exit<input type="time" id="exit"></label>
+    </div>
+    <div id="preview" class="preview"></div>
+    <div class="actions">
+      <button class="primary" id="save">Save</button>
+      <button id="dayoff">Mark day off</button>
+      <button id="reset">Clear form</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>History</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Date</th><th>Entry</th><th>Exit</th><th>Total</th><th>Daily Balance</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Settings & backup</h2>
+    <label class="inline">Weekend
+      <select id="weekend">
+        <option value="0,6">Saturday – Sunday</option>
+        <option value="5,6">Friday – Saturday</option>
+      </select>
+    </label>
+    <div class="actions">
+      <button id="export">Export data</button>
+      <button id="importBtn">Import data</button>
+      <button class="danger" id="clear">Clear all data</button>
+      <input type="file" id="importFile" accept=".json,application/json" hidden>
+    </div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
